@@ -1,0 +1,22 @@
+## server：tomcat中运行项目的端口
+server:
+  port: 8000
+
+## eureka
+eureka:
+  # 指定环境
+  environment: work
+  client:
+    # 设置是否将自己作为客户端注册到注册中心（缺省true）
+    register-with-eureka: false
+    # 设置是否从注册中心获取注册信息（缺省true）
+    fetch-registry: false
+    # 设置服务网址
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/
+  server:
+    # 是否开启自我保护模式，默认为true
+    enable-self-preservation: true
+    # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+    eviction-interval-timer-in-ms: 10000
+
